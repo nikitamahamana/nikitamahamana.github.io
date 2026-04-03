@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -14,9 +16,10 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #0a0a0a;
-      color: white;
+      color: #ccc;
+      line-height: 1.6;
     }
 
     /* Navbar */
@@ -24,18 +27,24 @@
       position: fixed;
       width: 100%;
       top: 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       padding: 15px;
       text-align: center;
       z-index: 1000;
     }
 
     nav a {
-      color: #00bcd4;
+      color: #00ffff;
       margin: 0 15px;
       text-decoration: none;
-      font-size: 14px;
+      font-weight: 600;
       letter-spacing: 1px;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #66fff9;
     }
 
     section {
@@ -44,56 +53,183 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 80px 20px;
+      padding: 100px 20px 60px; /* padding top > nav height */
       text-align: center;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background-color: #121212;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     }
 
-    /* Hero */
-    .hero h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #aaa;
-      font-size: 18px;
-    }
-
-    /* Section Titles */
-    h2 {
-      font-size: 30px;
+    /* Headings */
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #00ffff;
       margin-bottom: 20px;
     }
 
-    /* Cards */
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    /* Hero Section - William Blake style */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: left;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p.quote {
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #9ad3d8;
+      position: relative;
+      max-width: 450px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .hero-text p.quote::before,
+    .hero-text p.quote::after {
+      content: '"';
+      font-size: 2.5rem;
+      color: #00ffff;
+      position: absolute;
+    }
+
+    .hero-text p.quote::before {
+      top: -20px;
+      left: -30px;
+    }
+
+    .hero-text p.quote::after {
+      bottom: -20px;
+      right: -30px;
+    }
+
+    .contact-info {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #00cccc;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .contact-info svg {
+      fill: #00cccc;
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-info a,
+    .contact-info span {
+      color: #00cccc;
+      text-decoration: none;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 220px;
+      max-width: 220px;
+    }
+
+    .hero-image img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    /* Other Sections Titles */
+    #about h2,
+    #skills h2,
+    #projects h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    /* About Section Paragraph */
+    #about p {
+      color: #9ad3d8;
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+
+    /* Skills & Projects Grids */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      width: 80%;
-      max-width: 1000px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .card {
       background: #111;
       padding: 20px;
-      border-radius: 10px;
-      transition: 0.3s;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #bbb;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      background: #1a1a1a;
+      box-shadow: 0 0 20px #00ffff;
     }
 
     .card h3 {
       margin-bottom: 10px;
-      color: #00bcd4;
+      color: #00ffff;
+      font-family: 'Playfair Display', serif;
     }
 
     .card p {
       font-size: 14px;
-      color: #bbb;
+      color: #aaa;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text,
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .hero-image img {
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -108,16 +244,41 @@
     <a href="#projects">PROJECTS</a>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (William Blake style) -->
   <section id="home" class="hero">
-    <h1>Hi, I'm Your Name</h1>
-    <p>Developer • Problem Solver • Tech Enthusiast</p>
+    <div class="hero-text">
+      <h1>William Blake</h1>
+      <p class="quote">
+        I am a professional writer<br />
+        with more than 15 years of experience in storytelling.
+      </p>
+      <div class="contact-info">
+        <div>
+          <!-- Phone icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.36 11.36 0 003.54.57 1 1 0 011 1v3.58a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1h3.59a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.27 1.11z"/>
+          </svg>
+          <span>+(00)12365497</span>
+        </div>
+        <div>
+          <!-- Email icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+          </svg>
+          <a href="mailto:themeseye@gmail.com">themeseye@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.pravatar.cc/220?img=12" alt="William Blake" />
+    </div>
   </section>
 
   <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p style="max-width:600px; color:#aaa;">
+    <p>
       I'm a passionate developer who enjoys building clean and efficient web applications.
       I love solving problems and learning new technologies.
     </p>
