@@ -1,229 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nikita Mahamana</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a0a;
-  color: #ccc;
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:black;
+color:#bafcff;
 }
 
 /* NAVBAR */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0,0,0,0.9);
-  padding: 15px;
-  text-align: center;
-  z-index: 1000;
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+background:black;
+z-index:1000;
 }
 
-nav a {
-  color: #00ffff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
+nav a{
+color:#00ffff;
+text-decoration:none;
+font-weight:bold;
 }
 
-nav a:hover {
-  color: #66fff9;
+/* HERO SECTION */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:140px 10% 80px 10%;
+gap:40px;
+min-height:80vh;
+}
+
+.hero-text{
+flex:1;
+}
+
+.hero-text h1{
+font-size:72px;
+color:#00ffff;
+margin:0;
+}
+
+.subtitle{
+margin-top:10px;
+font-size:20px;
+color:#00ffff;
+}
+
+.hero-text p{
+margin-top:20px;
+line-height:1.6;
+max-width:500px;
+}
+
+/* IMAGE */
+
+.hero-image{
+flex:1;
+text-align:right;
+}
+
+.hero-image img{
+width:100%;
+max-width:420px;
+border-radius:18px;
+box-shadow:0 0 25px #00ffff;
+transition:transform .4s;
+}
+
+.hero-image img:hover{
+transform:scale(1.05);
+}
+
+/* STATEMENT */
+
+.statement{
+text-align:center;
+margin-top:60px;
+}
+
+.typing{
+font-size:30px;
+font-weight:bold;
+display:inline-block;
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid #00ffff;
+animation:typing 4s steps(40,end), blink 1s infinite;
+}
+
+.highlight{
+color:white;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
 }
 
 /* SECTIONS */
-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+
+section{
+padding:80px 10%;
 }
 
-/* HERO */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  width: 100%;
+h2{
+color:#00ffff;
 }
 
-/* TEXT */
-.hero-text {
-  max-width: 520px;
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:120px;
 }
 
-.hero-text h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
-  color: #00ffff;
+.hero-text p{
+margin-left:auto;
+margin-right:auto;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #66fff9;
-  margin: 15px 0;
+.hero-image{
+text-align:center;
+margin-top:30px;
 }
 
-.hero-text p {
-  font-size: 1.1rem;
-  color: #9ad3d8;
-  line-height: 1.7;
+.hero-image img{
+width:85%;
+max-width:320px;
 }
 
-/* FIXED TYPING ANIMATION */
-.typing-line {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #00ffff;
-  font-size: 1.2rem;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #00ffff;
-  max-width: 100%;
-  animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+.typing{
+font-size:22px;
+white-space:normal;
+border-right:none;
+animation:none;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
 }
 
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-/* IMAGE - BIGGER */
-.hero-image img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 0 25px #00ffff;
-}
-
-/* SECTION TITLES */
-h2 {
-  font-family: 'Playfair Display', serif;
-  color: #00ffff;
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-
-  .hero-text h1 {
-    font-size: 3rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  /* IMAGE FIX FOR MOBILE */
-  .hero-image img {
-    width: 80%;
-    height: auto;
-    max-width: 300px;
-  }
-
-  /* prevent typing cut */
-  .typing-line {
-    white-space: normal;
-    border-right: none;
-    animation: none;
-  }
-}
 </style>
 </head>
 
+
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
+
 <nav>
-  <a href="#home">HOME</a>
-  <a href="#portfolio">PORTFOLIO</a>
-  <a href="#process">PROCESS</a>
-  <a href="#about">ABOUT</a>
-  <a href="#testimonials">TESTIMONIALS</a>
+
+<a href="#home">HOME</a>
+<a href="#portfolio">PORTFOLIO</a>
+<a href="#process">PROCESS</a>
+<a href="#about">ABOUT</a>
+<a href="#testimonials">TESTIMONIALS</a>
+
 </nav>
 
+
 <!-- HERO -->
+
 <section id="home" class="hero">
 
-  <div class="hero-text">
-    <h1>Nikita Mahamana</h1>
+<div class="hero-text">
 
-    <div class="subtitle">
-      Content Marketer · B2B SaaS Writer
-    </div>
+<h1>Nikita<br>Mahamana</h1>
 
-    <p>
-      Hi, I'm Nikita.<br><br>
-      I help B2B companies say the right thing to the right people — without sounding like a Wikipedia page.
-      If your product solves a real problem, your content should feel like it too. That's kind of my thing.
-    </p>
+<div class="subtitle">
+Content Marketer · B2B SaaS Writer
+</div>
 
-    <div class="typing-line">
-      Content that works as hard as your product does.
-    </div>
-  </div>
+<p>
+Hi, I'm Nikita.
+</p>
 
-  <div class="hero-image">
-    <img src="profile.jpg" alt="Nikita">
-  </div>
+<p>
+I help B2B companies say the right thing to the right people — without sounding like a Wikipedia page.
+If your product solves a real problem, your content should feel like it too.
+That's kind of my thing.
+</p>
+
+</div>
+
+
+<div class="hero-image">
+
+<img src="profile.jpg" alt="Nikita">
+
+</div>
 
 </section>
+
+
+<!-- STATEMENT -->
+
+<section class="statement">
+
+<p class="typing">
+<span class="highlight">Content</span> that works as hard as your <span class="highlight">product</span> does.
+</p>
+
+</section>
+
 
 <!-- PORTFOLIO -->
+
 <section id="portfolio">
-  <h2>Portfolio</h2>
+
+<h2>Portfolio</h2>
+
 </section>
+
 
 <!-- PROCESS -->
+
 <section id="process">
-  <h2>Process</h2>
+
+<h2>Process</h2>
+
 </section>
+
 
 <!-- ABOUT -->
+
 <section id="about">
-  <h2>About</h2>
+
+<h2>About</h2>
+
 </section>
 
+
 <!-- TESTIMONIALS -->
+
 <section id="testimonials">
-  <h2>Testimonials</h2>
+
+<h2>Testimonials</h2>
+
 </section>
+
 
 </body>
 </html>
