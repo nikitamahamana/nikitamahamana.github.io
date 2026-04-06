@@ -2,228 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikita Mahamana</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:black;
-color:#bafcff;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
-/* NAVBAR (UNCHANGED STRUCTURE) */
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0a0a0a;
+  color:#ccc;
+}
 
+/* NAVBAR */
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-background:black;
-z-index:1000;
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.9);
+  padding:15px;
+  text-align:center;
+  z-index:1000;
 }
 
 nav a{
-color:#00ffff;
-text-decoration:none;
-font-weight:bold;
+  color:#00ffff;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* SECTION */
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:100px 8%;
 }
 
 /* HERO */
-
 .hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:120px 8%;
-gap:20px; /* reduced gap (fix spacing issue) */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  width:100%;
 }
 
-/* TEXT */
-
+/* LEFT TEXT */
 .hero-text{
-flex:1;
+  flex:1;
 }
 
 .hero-text h1{
-font-size:72px;
-color:#00ffff;
-margin:0;
+  font-family:'Playfair Display',serif;
+  font-size:4rem;
+  color:#00ffff;
+  margin-bottom:20px;
 }
 
-.subtitle{
-font-size:20px;
-margin-top:10px;
-color:#00ffff;
+/* UPDATED SIZE (+10%) */
+.hero-text h3{
+  font-size:1.2rem;
+  color:#00cccc;
+  margin-bottom:20px;
 }
 
+/* UPDATED PARAGRAPH */
 .hero-text p{
-margin-top:15px;
-line-height:1.5;
-max-width:500px;
+  font-size:1.15rem;
+  line-height:1.8;
+  max-width:650px;
+  color:#9ad3d8;
+  margin-bottom:20px;
 }
 
-/* IMAGE FIX (THIS IS WHERE ISSUE WAS) */
-
+/* IMAGE */
 .hero-image{
-flex:1;
-display:flex;
-justify-content:flex-end;
+  flex:1;
+  display:flex;
+  justify-content:flex-end;
 }
 
+/* REDUCED SIZE (~15%) */
 .hero-image img{
-width:100%;
-max-width:500px; /* increased size */
-border-radius:20px;
-box-shadow:0 0 20px #00ffff;
+  width:360px;
+  border-radius:15px;
+  box-shadow:0 0 20px #00ffff;
 }
 
-/* STATEMENT (separate but controlled) */
-
-.statement{
-margin-top:40px;
-text-align:center;
-}
-
-.typing{
-font-size:28px;
-font-weight:bold;
-display:inline-block;
-white-space:nowrap;
-overflow:hidden;
-border-right:3px solid #00ffff;
-animation:typing 4s steps(40,end), blink 1s infinite;
-}
-
-.highlight{
-color:white;
-}
-
-/* ANIMATION */
-
-@keyframes typing{
-from{width:0}
-to{width:100%}
-}
-
-@keyframes blink{
-50%{border-color:transparent}
-}
-
-/* SECTIONS */
-
-section{
-padding:80px 8%;
-}
-
-/* MOBILE FIX */
-
+/* MOBILE */
 @media(max-width:768px){
+  section{
+    flex-direction:column;
+    text-align:center;
+  }
 
-.hero{
-flex-direction:column;
-text-align:center;
-padding-top:100px;
+  .hero{
+    flex-direction:column;
+  }
+
+  .hero-image{
+    justify-content:center;
+    margin-top:30px;
+  }
+
+  .hero-image img{
+    width:80%;
+  }
 }
-
-.hero-image{
-justify-content:center;
-margin-top:20px;
-}
-
-.hero-image img{
-width:85%;
-max-width:350px; /* bigger on mobile */
-}
-
-.hero-text p{
-margin-left:auto;
-margin-right:auto;
-}
-
-.typing{
-font-size:22px;
-white-space:normal;
-border:none;
-animation:none;
-}
-
-}
-
 </style>
 </head>
-
 
 <body>
 
 <nav>
-<a href="#home">HOME</a>
-<a href="#portfolio">PORTFOLIO</a>
-<a href="#process">PROCESS</a>
-<a href="#about">ABOUT</a>
-<a href="#testimonials">TESTIMONIALS</a>
+  <a href="#home">HOME</a>
+  <a href="#portfolio">PORTFOLIO</a>
+  <a href="#process">PROCESS</a>
+  <a href="#about">ABOUT</a>
+  <a href="#testimonials">TESTIMONIALS</a>
 </nav>
 
-
 <section id="home" class="hero">
+  
+  <div class="hero-text">
+    <h1>Nikita Mahamana</h1>
 
-<div class="hero-text">
+    <h3>Content Marketer · B2B SaaS Writer</h3>
 
-<h1>Nikita Mahamana</h1>
+    <p>Hi, I'm Nikita.</p>
 
-<div class="subtitle">
-Content Marketer · B2B SaaS Writer
-</div>
+    <p>
+      I help B2B companies say the right thing to the right people — without sounding like a Wikipedia page. If your product solves a real problem, your content should feel like it too. That's kind of my thing.
+    </p>
+  </div>
 
-<p>
-Hi, I'm Nikita.
-</p>
-
-<p>
-I help B2B companies say the right thing to the right people — without sounding like a Wikipedia page.
-If your product solves a real problem, your content should feel like it too.
-That's kind of my thing.
-</p>
-
-</div>
-
-<div class="hero-image">
-<img src="profile.jpg" alt="Nikita">
-</div>
+  <div class="hero-image">
+    <img src="profile.jpg">
+  </div>
 
 </section>
-
-
-<section class="statement">
-
-<div class="typing">
-<span class="highlight">Content</span> that works as hard as your <span class="highlight">product</span> does.
-</div>
-
-</section>
-
-
-<section id="portfolio">
-<h2>Portfolio</h2>
-</section>
-
-<section id="process">
-<h2>Process</h2>
-</section>
-
-<section id="about">
-<h2>About</h2>
-</section>
-
-<section id="testimonials">
-<h2>Testimonials</h2>
-</section>
-
 
 </body>
 </html>
