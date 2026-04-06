@@ -1,6 +1,229 @@
 <!DOCTYPE html>
-<html>
-<body style="background:black;color:white;">
-<h1>Hello Nikita</h1>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikita Mahamana</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:black;
+color:#bafcff;
+}
+
+/* NAVBAR (UNCHANGED STRUCTURE) */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+background:black;
+z-index:1000;
+}
+
+nav a{
+color:#00ffff;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:120px 8%;
+gap:20px; /* reduced gap (fix spacing issue) */
+}
+
+/* TEXT */
+
+.hero-text{
+flex:1;
+}
+
+.hero-text h1{
+font-size:72px;
+color:#00ffff;
+margin:0;
+}
+
+.subtitle{
+font-size:20px;
+margin-top:10px;
+color:#00ffff;
+}
+
+.hero-text p{
+margin-top:15px;
+line-height:1.5;
+max-width:500px;
+}
+
+/* IMAGE FIX (THIS IS WHERE ISSUE WAS) */
+
+.hero-image{
+flex:1;
+display:flex;
+justify-content:flex-end;
+}
+
+.hero-image img{
+width:100%;
+max-width:500px; /* increased size */
+border-radius:20px;
+box-shadow:0 0 20px #00ffff;
+}
+
+/* STATEMENT (separate but controlled) */
+
+.statement{
+margin-top:40px;
+text-align:center;
+}
+
+.typing{
+font-size:28px;
+font-weight:bold;
+display:inline-block;
+white-space:nowrap;
+overflow:hidden;
+border-right:3px solid #00ffff;
+animation:typing 4s steps(40,end), blink 1s infinite;
+}
+
+.highlight{
+color:white;
+}
+
+/* ANIMATION */
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 8%;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:100px;
+}
+
+.hero-image{
+justify-content:center;
+margin-top:20px;
+}
+
+.hero-image img{
+width:85%;
+max-width:350px; /* bigger on mobile */
+}
+
+.hero-text p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.typing{
+font-size:22px;
+white-space:normal;
+border:none;
+animation:none;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<nav>
+<a href="#home">HOME</a>
+<a href="#portfolio">PORTFOLIO</a>
+<a href="#process">PROCESS</a>
+<a href="#about">ABOUT</a>
+<a href="#testimonials">TESTIMONIALS</a>
+</nav>
+
+
+<section id="home" class="hero">
+
+<div class="hero-text">
+
+<h1>Nikita Mahamana</h1>
+
+<div class="subtitle">
+Content Marketer · B2B SaaS Writer
+</div>
+
+<p>
+Hi, I'm Nikita.
+</p>
+
+<p>
+I help B2B companies say the right thing to the right people — without sounding like a Wikipedia page.
+If your product solves a real problem, your content should feel like it too.
+That's kind of my thing.
+</p>
+
+</div>
+
+<div class="hero-image">
+<img src="profile.jpg" alt="Nikita">
+</div>
+
+</section>
+
+
+<section class="statement">
+
+<div class="typing">
+<span class="highlight">Content</span> that works as hard as your <span class="highlight">product</span> does.
+</div>
+
+</section>
+
+
+<section id="portfolio">
+<h2>Portfolio</h2>
+</section>
+
+<section id="process">
+<h2>Process</h2>
+</section>
+
+<section id="about">
+<h2>About</h2>
+</section>
+
+<section id="testimonials">
+<h2>Testimonials</h2>
+</section>
+
+
 </body>
 </html>
