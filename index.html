@@ -44,17 +44,16 @@ section{
   padding:100px 8%;
 }
 
-  #home{
-  padding-bottom: 20px;
+#home{
+  padding-bottom:20px;
 }
-  
+
 /* HERO */
 .hero{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:40px;
-  min-height:auto;
 }
 
 /* TEXT SIDE */
@@ -91,12 +90,12 @@ section{
 }
 
 .hero-image img{
-  width:360px; /* increased size */
+  width:360px;
   border-radius:15px;
   box-shadow:0 0 20px #00ffff;
 }
 
-/* STATEMENT (clean placement) */
+/* STATEMENT */
 .statement{
   width:100%;
   display:flex;
@@ -130,6 +129,44 @@ section{
 
 @keyframes blink{
   50%{ border-color:transparent }
+}
+
+/* ========================= */
+/* PORTFOLIO SECTION */
+/* ========================= */
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.portfolio-card{
+  background:#111;
+  padding:25px;
+  border-radius:15px;
+  text-decoration:none;
+  color:#ccc;
+  transition:0.3s;
+  box-shadow:0 0 10px rgba(0,255,255,0.1);
+}
+
+.portfolio-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px #00ffff;
+}
+
+.portfolio-card h2{
+  color:#00ffff;
+  margin-bottom:10px;
+  font-family:'Playfair Display',serif;
+}
+
+.portfolio-card p{
+  font-size:14px;
+  color:#aaa;
 }
 
 /* MOBILE */
@@ -194,7 +231,7 @@ section{
 
 </section>
 
-<!-- STATEMENT (NOW BELOW EVERYTHING) -->
+<!-- STATEMENT -->
 <section class="statement">
   <div class="typing">
     <span class="highlight">Content</span> that works as hard as your 
@@ -202,8 +239,28 @@ section{
   </div>
 </section>
 
-<!-- NAV TARGET SECTIONS -->
-<section id="portfolio"></section>
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+  <div class="portfolio-grid">
+
+    <a href="https://medium.com/@nikitamahamana/vocal-video-vs-storyprompt-which-one-is-best-for-you-in-2026-b5034c41ef1b"
+       target="_blank"
+       class="portfolio-card">
+
+      <h2>Vocal Video vs StoryPrompt: Which Video Testimonial Tool is Best for You in 2026?</h2>
+
+      <p>
+        A BOFU SaaS comparison piece breaking down features, pricing, and real use-cases to help buyers choose the right tool.
+      </p>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- EMPTY SECTIONS -->
 <section id="process"></section>
 <section id="about"></section>
 <section id="testimonials"></section>
