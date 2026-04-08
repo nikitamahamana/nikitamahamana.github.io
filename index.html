@@ -419,5 +419,40 @@ section{
 </section>
 <section id="testimonials"></section>
 
+<script>
+const counters = document.querySelectorAll('.count');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      const counter = entry.target;
+
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        let count = +counter.innerText.replace('M','');
+
+        const increment = target / 50;
+
+        if (count < target) {
+          count += increment;
+          counter.innerText = Math.ceil(count) + 'M';
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target + 'M';
+        }
+      };
+
+      updateCount();
+      observer.unobserve(counter);
+    }
+  });
+});
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+</script>
+
 </body>
 </html>
