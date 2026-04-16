@@ -133,7 +133,6 @@ section{
 
   .typing-about{
   font-size:28px;
-  text-align:center;
   font-weight:600;
   color:#ffffff;
 
@@ -150,7 +149,10 @@ section{
   from{ width:0 }
   to{ width:35ch }
 }
-
+.typing-wrapper{
+  display:flex;
+  justify-content:center;
+}
 /* ========================= */
 /* PORTFOLIO SECTION */
 /* ========================= */
@@ -481,7 +483,8 @@ section{
   <div style="max-width:800px; margin:0 auto;">
 
     <!-- HEADING -->
-    <div class="typing-about">
+    <div class="typing-wrapper">
+     <div class="typing-about">
        AI is the <span class="highlight">tool</span>. Strategy is the <span class="highlight">difference.</span>
     </div>
 
@@ -547,7 +550,7 @@ section{
   <div style="max-width:700px; margin:0 auto; text-align:center;">
 
     <div class="typing-about">
-      Oh wait, there's more!
+      Oh <span class="highlight">wait,</span> there's <span class="highlight">more!</span>
     </div>
 
     <p style="
