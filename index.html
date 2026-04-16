@@ -290,16 +290,15 @@ section{
   line-height:1.6;
   color:#ccc;
 
+  font-size:18px;
+
   opacity:0;
   transform:translateY(30px);
-  animation:fadeUp 0.6s ease forwards;
 }
 
-/* stagger bullets */
-.process-list li:nth-child(1){ animation-delay:0.2s; }
-.process-list li:nth-child(2){ animation-delay:0.4s; }
-.process-list li:nth-child(3){ animation-delay:0.6s; }
-.process-list li:nth-child(4){ animation-delay:0.8s; }
+.process-list li.show {
+  animation: fadeUp 0.6s ease forwards;
+}
 
 /* punchline */
 .process-reveal {
@@ -486,7 +485,7 @@ section{
     <!-- HEADING -->
     <div style="text-align:center;">
   <div class="typing-about">
-    AI is the <span class="highlight">tool</span>. Strategy is the <span class="highlight">difference</span>
+    AI is the <span class="highlight">tool</span>. Strategy is the <span class="highlight">difference.</span>
   </div>
 </div>
      
@@ -661,6 +660,29 @@ const observer = new IntersectionObserver(entries => {
 counters.forEach(counter => {
   observer.observe(counter);
 });
+
+  const processList = document.querySelector('.process-list');
+
+if(processList){
+  const items = processList.querySelectorAll('li');
+
+  const observer2 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('show');
+          }, index * 200);
+        });
+
+        observer2.unobserve(processList);
+      }
+    });
+  });
+
+  observer2.observe(processList);
+}
 </script>
 
 </body>
