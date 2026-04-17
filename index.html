@@ -217,7 +217,9 @@ section{
 }
 
 .about-card img {
-  width: 60px;
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
   margin-bottom: 15px;
 }
 
@@ -554,9 +556,9 @@ section{
  
   <div style="max-width:700px; margin:0 auto; text-align:center;">
 
-    <div class="typing-about">
-      Oh <span class="highlight">wait,</span> there's <span class="highlight">more!</span>
-    </div>
+    <div class="typing-about about-typing">
+  Oh <span class="highlight">wait,</span> there's <span class="highlight">more!</span>
+</div>
 
     <p style="
       margin-top:30px;
@@ -694,6 +696,20 @@ if(processList){
   }, { threshold: 0.6 });
 
   observer2.observe(processList);
+}
+  const aboutTyping = document.querySelector('.about-typing');
+
+if(aboutTyping){
+  const observer3 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        aboutTyping.classList.add('start');
+        observer3.unobserve(aboutTyping);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer3.observe(aboutTyping);
 }
 </script>
 </body>
