@@ -419,6 +419,67 @@ section{
     transform:translateY(0);
   }
 }
+  /* TESTIMONIALS */
+
+.testimonial-wrapper{
+  margin-top:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+}
+
+.testimonial-container{
+  width:400px;
+  position:relative;
+}
+
+.testimonial-card{
+  display:none;
+  background:#111;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,255,255,0.1);
+  text-align:left;
+}
+
+.testimonial-card.active{
+  display:block;
+}
+
+.testimonial-name{
+  font-size:18px;
+  font-weight:600;
+  color:#00ffff;
+}
+
+.testimonial-role{
+  font-size:14px;
+  opacity:0.7;
+  margin-bottom:15px;
+}
+
+.testimonial-text{
+  font-size:16px;
+  line-height:1.7;
+  color:#ccc;
+}
+
+/* BUTTONS */
+.nav-btn{
+  background:transparent;
+  border:1px solid #00ffff;
+  color:#00ffff;
+  font-size:20px;
+  padding:10px 15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.nav-btn:hover{
+  background:#00ffff;
+  color:black;
+}
 </style>
 </head>
 
@@ -629,9 +690,58 @@ section{
 
 </div>
 
-</section>
-<section id="testimonials"></section>
+<section id="testimonials">
 
+  <div style="max-width:800px; margin:0 auto; text-align:center;">
+
+    <!-- HEADING -->
+    <div class="typing-about testimonial-typing">
+      What <span class="highlight">clients</span> are saying about <span class="highlight">me</span>
+    </div>
+
+    <!-- SLIDER WRAPPER -->
+    <div class="testimonial-wrapper">
+
+      <!-- LEFT BUTTON -->
+      <button class="nav-btn left-btn">&#10094;</button>
+
+      <!-- CARD CONTAINER -->
+      <div class="testimonial-container">
+
+        <div class="testimonial-card active">
+          <p class="testimonial-name">Jessica</p>
+          <p class="testimonial-role">Editor</p>
+          <p class="testimonial-text">
+            Nikita consistently delivers content that is sharp, well-researched, and aligned with audience intent. Her ability to turn complex ideas into engaging reads is exceptional.
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-name">Client Name</p>
+          <p class="testimonial-role">B2B SaaS Client</p>
+          <p class="testimonial-text">
+            Reliable, fast, and strategic. Nikita doesn’t just write — she understands what the content needs to achieve and executes with precision.
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-name">Another Client</p>
+          <p class="testimonial-role">Content Manager</p>
+          <p class="testimonial-text">
+            A pleasure to work with. Strong research, clear structure, and consistently high-quality output across different formats.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT BUTTON -->
+      <button class="nav-btn right-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</section>
 <script>
 const counters = document.querySelectorAll('.count');
 
@@ -710,6 +820,42 @@ if(aboutTyping){
   }, { threshold: 0.5 });
 
   observer3.observe(aboutTyping);
+}
+  /* TESTIMONIAL SLIDER */
+
+const cards = document.querySelectorAll('.testimonial-card');
+const nextBtn = document.querySelector('.right-btn');
+const prevBtn = document.querySelector('.left-btn');
+
+let index = 0;
+
+function showCard(i){
+  cards.forEach(card => card.classList.remove('active'));
+  cards[i].classList.add('active');
+}
+
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % cards.length;
+  showCard(index);
+});
+
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + cards.length) % cards.length;
+  showCard(index);
+});
+  const testimonialTyping = document.querySelector('.testimonial-typing');
+
+if(testimonialTyping){
+  const observer4 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        testimonialTyping.classList.add('start');
+        observer4.unobserve(testimonialTyping);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer4.observe(testimonialTyping);
 }
 </script>
 </body>
