@@ -563,6 +563,56 @@ section{
   from{ transform:translateY(0px); }
   to{ transform:translateY(20px); }
 }
+
+  /* TOOLS SECTION */
+
+.tools-card{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:20px;
+
+  background:#111;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,255,255,0.1);
+  transition:0.3s;
+}
+
+.tools-card:hover{
+  box-shadow:0 0 20px #00ffff;
+}
+
+/* COLUMN */
+.tools-col{
+  text-align:center;
+  font-size:14px;
+  color:#ccc;
+}
+
+/* FIRST COLUMN */
+.tools-heading{
+  font-weight:600;
+  color:#00ffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGO */
+.tool-logo{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  margin-bottom:10px;
+  transition:0.3s ease;
+}
+
+/* HOVER EFFECT */
+.tool-logo:hover{
+  transform:scale(1.1);
+  filter: drop-shadow(0 0 10px #00ffff);
+}
 </style>
 </head>
 
@@ -752,6 +802,70 @@ section{
 
 </div>
 
+  <!-- TOOLS USED -->
+
+<div style="text-align:center; margin-top:80px;">
+
+  <!-- HEADING -->
+  <div class="typing-about tools-typing">
+    <span class="highlight">Tools</span> Used
+  </div>
+
+  <!-- CARD 1 -->
+  <div class="tools-card">
+
+    <div class="tools-col tools-heading">Research & Ideation</div>
+
+    <div class="tools-col">
+      <img src="gemini.png" class="tool-logo">
+      <p>Gemini</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="claude.png" class="tool-logo">
+      <p>Claude</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="semrush.png" class="tool-logo">
+      <p>Semrush</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="surfer.png" class="tool-logo">
+      <p>Surfer SEO</p>
+    </div>
+
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="tools-card">
+
+    <div class="tools-col tools-heading">Performance & Audit</div>
+
+    <div class="tools-col">
+      <img src="gsc.png" class="tool-logo">
+      <p>Google Search Console</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="ga.png" class="tool-logo">
+      <p>Google Analytics</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="moz.png" class="tool-logo">
+      <p>Moz</p>
+    </div>
+
+    <div class="tools-col">
+      <img src="frog.png" class="tool-logo">
+      <p>Screaming Frog</p>
+    </div>
+
+  </div>
+
+</div>
 
 </section>
 <section id="about"></section>
@@ -1014,6 +1128,23 @@ if(processTyping){
   }, { threshold: 0.5 });
 
   observer5.observe(processTyping);
+}
+
+  /* TOOLS TYPING TRIGGER */
+
+const toolsTyping = document.querySelector('.tools-typing');
+
+if(toolsTyping){
+  const observer6 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        toolsTyping.classList.add('start');
+        observer6.unobserve(toolsTyping);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer6.observe(toolsTyping);
 }
 </script>
 </body>
